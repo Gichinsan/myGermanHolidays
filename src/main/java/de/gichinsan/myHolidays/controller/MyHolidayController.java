@@ -1,5 +1,6 @@
 package de.gichinsan.myHolidays.controller;
 
+import de.gichinsan.myHolidays.utils.CalcWorkMonthlyDays;
 import de.gichinsan.myHolidays.utils.FixedFeasts;
 import de.gichinsan.myHolidays.utils.MovableFeasts;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,13 @@ public class MyHolidayController implements Serializable {
     public String getMaiFeiertage(@RequestParam(value = "year") int year){
         FixedFeasts ff = new FixedFeasts(year);
         return ff.getsMaifeiertag();
+    }
+
+    @RequestMapping(value = "/v1/calcDayofMonth", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public int getCalcDayofMonth(@RequestParam(value = "year") int year, @RequestParam(value="month") int month){
+        CalcWorkMonthlyDays cm = new CalcWorkMonthlyDays(year,month);
+        return cm.getCalcWorkMonthlyDays();
     }
 
 }
