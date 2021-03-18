@@ -6,6 +6,8 @@ import lombok.val;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 @Data
 public class CalcWorkMonthlyDays {
@@ -14,7 +16,6 @@ public class CalcWorkMonthlyDays {
     private int month;
 
     /**
-     *
      * @param year
      * @param month
      */
@@ -24,7 +25,6 @@ public class CalcWorkMonthlyDays {
     }
 
     /**
-     *
      * @return
      */
     public int getCalcWorkMonthlyDays() {
@@ -42,21 +42,54 @@ public class CalcWorkMonthlyDays {
 
 
     /**
-     * @param startDate
-     * @param endDate
-     * @return
+     * @param startDate LocalDate
+     * @param endDate LocalDate
+     * @return int Anzahl der Arbeitstage
      */
     private int getWorkDays(LocalDate startDate, LocalDate endDate) {
-        startDate = startDate.minusDays(1);
-        int dayCtr = 1;
-        int days = 1;
-        while (startDate.plusDays(dayCtr).isBefore(endDate)) {
-            dayCtr += 1;
-            val dow = startDate.plusDays(dayCtr).getDayOfWeek();
-            if (!dow.equals(DayOfWeek.SATURDAY) && !dow.equals(DayOfWeek.SUNDAY))
+        int days = 0;
+        while (startDate.isBefore(endDate.plusDays(1))) {
+            val dow = startDate.getDayOfWeek();
+            if ((!dow.equals(DayOfWeek.SATURDAY) && !dow.equals(DayOfWeek.SUNDAY)) && !isFeasts(startDate)) {
                 days += 1;
+            }
+            startDate = startDate.plusDays(1);
         }
         return days;
+    }
+
+    /**
+     * isFeasts gibt zurück ob es sich um einen beweglichen oder festen Feiertag handelt.
+     * <p>
+     * Note: Weihnachten und Silverster sind zu meinst halbe Arbeitstage!
+     *
+     * @param startDate LocalDate
+     * @return boolean true/false
+     */
+    private boolean isFeasts(LocalDate startDate) {
+        int year = startDate.getYear();
+        MovableFeasts mf = new MovableFeasts(year);
+        FixedFeasts ff = new FixedFeasts(year);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        if ((mf.getChristiHimmelfahrt().format(formatter).equals(startDate.toString()))
+                || (mf.getPfingsten().format(formatter).equals(startDate.toString()))
+                || (mf.getKarfreitag().format(formatter).equals(startDate.toString()))
+                || (mf.getOstermontag().format(formatter).equals(startDate.toString()))
+                || (ff.getsNeujahr().format(formatter).equals(startDate.toString()))
+                || (ff.getsMaifeiertag().format(formatter).equals(startDate.toString()))
+                || (ff.getlAllerHeiligen().format(formatter).equals(startDate.toString()))
+                || (ff.gets1Weihnachten().format(formatter).equals(startDate.toString()))
+                || (ff.gets2Weihnachten().format(formatter).equals(startDate.toString()))
+                || (ff.getsTagderDeutschenEinheit().format(formatter).equals(startDate.toString()))
+                || (ff.getsHeilige().format(formatter).equals(startDate.toString()))
+                || (mf.getFronleichnam().format(formatter).equals(startDate.toString()))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

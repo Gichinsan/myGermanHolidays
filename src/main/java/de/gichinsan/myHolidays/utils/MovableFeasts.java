@@ -1,6 +1,8 @@
 package de.gichinsan.myHolidays.utils;
 
-import java.text.DateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -54,7 +56,7 @@ public class MovableFeasts {
     /**
      * @return achsermittwoch
      */
-    public String getAschermittwoch() {
+    public LocalDateTime getAschermittwoch() {
 
         long day = 46;
 
@@ -64,104 +66,82 @@ public class MovableFeasts {
 
         achsermittwoch = easterSunday().getTimeInMillis() - dayb;
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
         // Muss Mittwoch sein
         Date date = new Date(achsermittwoch);
         Calendar cali = Calendar.getInstance();
         cali.setTime(date);
-        // cali.set(Calendar.DAY_OF_WEEK, 0);
 
         int weekday = cali.get(Calendar.DAY_OF_WEEK);
-
-
         if (weekday != 4) {
             achsermittwoch = achsermittwoch + aDay;
         }
-        return df.format(achsermittwoch);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(achsermittwoch), ZoneId.systemDefault());
     }
 
-    public String getPalmsonntag() {
+    public LocalDateTime getPalmsonntag() {
         long day = 7;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         palmsonntag = easterSunday().getTimeInMillis() - dayb;
-
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        return df.format(palmsonntag);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(palmsonntag), ZoneId.systemDefault());
     }
 
     /**
      * @return karfreitag
      */
-    public String getKarfreitag() {
+    public LocalDateTime getKarfreitag() {
         long day = 2;
 
         long dayb = day * (24 * 60 * 60 * 1000);
-
         karfreitag = easterSunday().getTimeInMillis() - dayb;
-
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        return df.format(karfreitag);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(karfreitag), ZoneId.systemDefault());
     }
 
-    public String getOstersonntag() {
-
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        return df.format(easterSunday().getTime());
+    public LocalDateTime getOstersonntag() {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(easterSunday().getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getOstermontag() {
+    public LocalDateTime getOstermontag() {
         long day = 1;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         ostermontag = easterSunday().getTimeInMillis() + dayb;
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        return df.format(ostermontag);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ostermontag), ZoneId.systemDefault());
     }
 
-    public String getChristiHimmelfahrt() {
+    public LocalDateTime getChristiHimmelfahrt() {
         long day = 39;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         christiHimmelfahrt = easterSunday().getTimeInMillis() + dayb;
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(christiHimmelfahrt), ZoneId.systemDefault());
 
-        return df.format(christiHimmelfahrt);
     }
 
-    public String getPfingsten() {
+    public LocalDateTime getPfingsten() {
         long day = 50;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         pfingsten = easterSunday().getTimeInMillis() + dayb;
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        return df.format(pfingsten);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(pfingsten), ZoneId.systemDefault());
     }
 
-    public String getFronleichnam() {
+    public LocalDateTime getFronleichnam() {
         long day = 60;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         fronleichnam = easterSunday().getTimeInMillis() + dayb;
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
         this.setFronleichnam(fronleichnam);
-        return df.format(fronleichnam);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(fronleichnam), ZoneId.systemDefault());
     }
 
     /**

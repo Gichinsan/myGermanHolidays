@@ -1,6 +1,9 @@
 package de.gichinsan.myHolidays.utils;
 
 import java.text.DateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 
 public class FixedFeasts {
@@ -28,7 +31,7 @@ public class FixedFeasts {
         this.setiYear(year);
     }
 
-    public String getsHeilige() {
+    public LocalDateTime getsHeilige() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -37,10 +40,10 @@ public class FixedFeasts {
 
         this.setlHeilige(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getsMaifeiertag() {
+    public LocalDateTime getsMaifeiertag() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -49,22 +52,20 @@ public class FixedFeasts {
 
         this.setlMaifeiertage(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getsNeujahr() {
+    public LocalDateTime getsNeujahr() {
 
         Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
         cal.set(FixedFeasts.getiYear(), 0, 1);
 
         this.setlNeujahr(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getsTagderDeutschenEinheit() {
+    public LocalDateTime getsTagderDeutschenEinheit() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -73,10 +74,10 @@ public class FixedFeasts {
 
         this.setlTagDerDeutschenEinheit(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getsWeihnachten() {
+    public LocalDateTime getsWeihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -85,10 +86,10 @@ public class FixedFeasts {
 
         this.setlWeihnachten(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String gets1Weihnachten() {
+    public LocalDateTime gets1Weihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -97,10 +98,10 @@ public class FixedFeasts {
 
         this.setL1Weihnachten(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String gets2Weihnachten() {
+    public LocalDateTime gets2Weihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -109,10 +110,10 @@ public class FixedFeasts {
 
         this.setL2Weihnachten(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
-    public String getsSilvester() {
+    public LocalDateTime getsSilvester() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -121,7 +122,7 @@ public class FixedFeasts {
 
         this.setlSilvester(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
     }
 
     /**
@@ -289,7 +290,7 @@ public class FixedFeasts {
     /**
      * @return the lAllerHeiligen
      */
-    public String getlAllerHeiligen() {
+    public LocalDateTime getlAllerHeiligen() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -298,7 +299,7 @@ public class FixedFeasts {
 
         setlAllerHeiligen(cal.getTimeInMillis());
 
-        return df.format(cal.getTime());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
 
     }
 
