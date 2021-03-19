@@ -79,6 +79,13 @@ public class MyHolidayController implements Serializable {
         return ff.getsMaifeiertag().toString();
     }
 
+    /**
+     * Berechnet die Arbeitstage eines Monats, ohne Wochenende und Feiertage.
+     *
+     * @param year  INT
+     * @param month INT
+     * @return Anzahl der Arbeitstage INT
+     */
     @RequestMapping(value = "/v1/calcDayofMonth", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public int getCalcDayofMonth(@RequestParam(value = "year") int year, @RequestParam(value = "month") int month) {

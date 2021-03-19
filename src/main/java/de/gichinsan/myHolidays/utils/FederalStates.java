@@ -2,15 +2,24 @@ package de.gichinsan.myHolidays.utils;
 
 public enum FederalStates {
 
-    /**
-     *
-     */
-    Baden_Wuerttemberg("Baden-Württemberg"), Hessen("Hessen");
+    Baden_Wuerttemberg("Baden-Württemberg"),
+    Bayern("Bayern"),
+    Berlin("Berlin"),
+    Brandenburg("Brandenburg"),
+    Bremen("Bremen"),
+    Hamburg("Hamburg"),
+    Hessen("Hessen"),
+    NordrheinWestfalen("Nordrhein Westfalen"),
+    RheinlandPfalz("Rheinland Pfalz"),
+    Saarland("Saarland"),
+    Sachsen("Sachsen"),
+    SachenAnhalt("Sachen Anhalt"),
+    SchleswigHolstein("Schleswig Holstein"),
+    Thüringen("Thüringen");
 
     private String displayName;
 
     /**
-     *
      * @param displayName String
      */
     FederalStates(String displayName) {
@@ -18,7 +27,6 @@ public enum FederalStates {
     }
 
     /**
-     *
      * @return displayName String
      */
     public String displayName() {
@@ -26,7 +34,6 @@ public enum FederalStates {
     }
 
     /**
-     *
      * @return toString String
      */
     @Override

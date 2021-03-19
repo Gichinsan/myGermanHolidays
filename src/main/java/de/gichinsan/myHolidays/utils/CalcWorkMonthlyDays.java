@@ -78,13 +78,13 @@ public class CalcWorkMonthlyDays {
                 || (mf.getPfingsten().format(formatter).equals(startDate.toString()))
                 || (mf.getKarfreitag().format(formatter).equals(startDate.toString()))
                 || (mf.getOstermontag().format(formatter).equals(startDate.toString()))
-                || (ff.getsNeujahr().format(formatter).equals(startDate.toString()))
-                || (ff.getsMaifeiertag().format(formatter).equals(startDate.toString()))
+                || (ff.getsNeujahr().equals(startDate.toString()))
+                || (ff.getsMaifeiertag().equals(startDate.toString()))
                 || (ff.getlAllerHeiligen().format(formatter).equals(startDate.toString()))
-                || (ff.gets1Weihnachten().format(formatter).equals(startDate.toString()))
-                || (ff.gets2Weihnachten().format(formatter).equals(startDate.toString()))
-                || (ff.getsTagderDeutschenEinheit().format(formatter).equals(startDate.toString()))
-                || (ff.getsHeilige().format(formatter).equals(startDate.toString()))
+                || (ff.gets1Weihnachten().equals(startDate.toString()))
+                || (ff.gets2Weihnachten().equals(startDate.toString()))
+                || (ff.getsTagderDeutschenEinheit().equals(startDate.toString()))
+                || (ff.getsHeilige().equals(startDate.toString()))
                 || (mf.getFronleichnam().format(formatter).equals(startDate.toString()))) {
             return true;
         } else {

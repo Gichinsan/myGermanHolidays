@@ -4,7 +4,9 @@ import java.text.DateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class FixedFeasts {
 
@@ -31,7 +33,7 @@ public class FixedFeasts {
         this.setiYear(year);
     }
 
-    public LocalDateTime getsHeilige() {
+    public String getsHeilige() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -40,10 +42,15 @@ public class FixedFeasts {
 
         this.setlHeilige(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime getsMaifeiertag() {
+    public String getsMaifeiertag() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -52,20 +59,30 @@ public class FixedFeasts {
 
         this.setlMaifeiertage(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime getsNeujahr() {
+    public String getsNeujahr() {
 
         Calendar cal = Calendar.getInstance();
         cal.set(FixedFeasts.getiYear(), 0, 1);
 
         this.setlNeujahr(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime getsTagderDeutschenEinheit() {
+    public String getsTagderDeutschenEinheit() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -74,10 +91,15 @@ public class FixedFeasts {
 
         this.setlTagDerDeutschenEinheit(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime getsWeihnachten() {
+    public String getsWeihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -86,10 +108,15 @@ public class FixedFeasts {
 
         this.setlWeihnachten(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime gets1Weihnachten() {
+    public String gets1Weihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -98,10 +125,15 @@ public class FixedFeasts {
 
         this.setL1Weihnachten(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime gets2Weihnachten() {
+    public String gets2Weihnachten() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -110,10 +142,15 @@ public class FixedFeasts {
 
         this.setL2Weihnachten(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
-    public LocalDateTime getsSilvester() {
+    public String getsSilvester() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -122,7 +159,12 @@ public class FixedFeasts {
 
         this.setlSilvester(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
     }
 
     /**
