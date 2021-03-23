@@ -1,6 +1,6 @@
-package de.gichinsan.myHolidays;
+package de.gichinsan.myGermanHolidays;
 
-import de.gichinsan.myHolidays.controller.MyHolidayController;
+import de.gichinsan.myGermanHolidays.controller.MyGermanHolidayController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -11,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureRestDocs(outputDir = "target/snippets")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class MyHolidaysApplicationTests {
+class MyGermanHolidaysApplicationTests {
 
     @Autowired
-    private MyHolidayController controller;
+    private MyGermanHolidayController controller;
 
     @LocalServerPort
     private int port;

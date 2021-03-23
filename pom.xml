@@ -8,19 +8,19 @@
         <version>2.4.3</version>
     </parent>
     <groupId>de.gichinsan</groupId>
-    <artifactId>myHolidays</artifactId>
+    <artifactId>myGermanHolidays</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>myHolidays</name>
     <description>MyHolidays ist in der Lage Feste und Bewegliche Feiertage aus Deutschland zu berechnen.
         Man kann einzelne Feiertage abfragen oder sich pro Monat die Arbeitstage wiedergeben lassen.
     </description>
-    <url>https://github.com/Gichinsan/myHolidays</url>
+    <url>https://github.com/Gichinsan/myGermanHolidays</url>
 
     <distributionManagement>
         <site>
             <id>website</id>
-            <url>https://github.com/Gichinsan/myHolidays</url>
+            <url>https://github.com/Gichinsan/myGermanHolidays</url>
         </site>
     </distributionManagement>
 
@@ -99,7 +99,6 @@
                 <configuration>
                     <show>private</show>
                     <nohelp>true</nohelp>
-                    <outputDirectory></outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

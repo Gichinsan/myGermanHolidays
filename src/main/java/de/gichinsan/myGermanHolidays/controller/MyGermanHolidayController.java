@@ -1,8 +1,8 @@
-package de.gichinsan.myHolidays.controller;
+package de.gichinsan.myGermanHolidays.controller;
 
-import de.gichinsan.myHolidays.utils.CalcWorkMonthlyDays;
-import de.gichinsan.myHolidays.utils.FixedFeasts;
-import de.gichinsan.myHolidays.utils.MovableFeasts;
+import de.gichinsan.myGermanHolidays.utils.CalcWorkMonthlyDays;
+import de.gichinsan.myGermanHolidays.utils.FixedFeasts;
+import de.gichinsan.myGermanHolidays.utils.MovableFeasts;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @RestController
 @Slf4j
-public class MyHolidayController implements Serializable {
+public class MyGermanHolidayController implements Serializable {
 
     @RequestMapping(value = "/v1/aschermittwoch", produces = "application/json; charset=UTF-8")
     @ResponseBody

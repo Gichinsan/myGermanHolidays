@@ -1,13 +1,13 @@
-package de.gichinsan.myHolidays;
+package de.gichinsan.myGermanHolidays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyHolidaysApplication {
+public class MyGermanHolidaysApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyHolidaysApplication.class, args);
+		SpringApplication.run(MyGermanHolidaysApplication.class, args);
 	}
 
 }

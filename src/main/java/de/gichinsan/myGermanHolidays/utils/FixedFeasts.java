@@ -1,4 +1,4 @@
-package de.gichinsan.myHolidays.utils;
+package de.gichinsan.myGermanHolidays.utils;
 
 import java.text.DateFormat;
 import java.time.Instant;
