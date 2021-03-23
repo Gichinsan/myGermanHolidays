@@ -9,7 +9,7 @@
     </parent>
     <groupId>de.gichinsan</groupId>
     <artifactId>myHolidays</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>myHolidays</name>
     <description>MyHolidays ist in der Lage Feste und Bewegliche Feiertage aus Deutschland zu berechnen. Man kan

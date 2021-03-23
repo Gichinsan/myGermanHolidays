@@ -16,8 +16,8 @@ public class CalcWorkMonthlyDays {
     private int month;
 
     /**
-     * @param year
-     * @param month
+     * @param year INT
+     * @param month INT
      */
     public CalcWorkMonthlyDays(int year, int month) {
         this.setMonth(month);
@@ -25,7 +25,7 @@ public class CalcWorkMonthlyDays {
     }
 
     /**
-     * @return
+     * @return Anzahl der Arbeitstage - INT
      */
     public int getCalcWorkMonthlyDays() {
         // Get the number of days in that month

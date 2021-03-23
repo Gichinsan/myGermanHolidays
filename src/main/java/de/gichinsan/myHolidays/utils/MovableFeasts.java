@@ -32,7 +32,7 @@ public class MovableFeasts {
     /**
      * Returns the date of Easter Sunday for a given year.
      * <p>
-     * Note: year > 1583
+     * Note: year from 1583
      *
      * @return The date of Easter Sunday for a given year.
      */

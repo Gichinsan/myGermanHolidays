@@ -3,11 +3,13 @@ package de.gichinsan.myHolidays;
 import de.gichinsan.myHolidays.controller.MyHolidayController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@AutoConfigureRestDocs(outputDir = "target/snippets")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MyHolidaysApplicationTests {
 
