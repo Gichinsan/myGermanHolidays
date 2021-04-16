@@ -58,4 +58,5 @@ hs_err_pid*
 
 #ide specific
 .idea/**
-target/**
+target/**s
+/settings.xml

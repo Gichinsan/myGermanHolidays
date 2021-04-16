@@ -6,6 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.3</version>
+        <relativePath>pom.xml</relativePath>
     </parent>
     <groupId>de.gichinsan</groupId>
     <artifactId>myGermanHolidays</artifactId>
@@ -23,6 +24,19 @@
             <url>https://github.com/Gichinsan/myGermanHolidays</url>
         </site>
     </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>gichinsan</id>
+            <name>Gichinsan</name>
+            <organization>private</organization>
+            <organizationUrl>https://github.com/Gichinsan/myGermanHolidays</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>11</java.version>
@@ -67,6 +81,24 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>2.0.2</version>
+                <executions>
+                    <execution>
+                        <id>upload-to-myserver</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>upload-single</goal>
+                        </goals>
+                        <configuration>
+                            <fromFile>${project.build.directory}/${project.build.finalName}.war</fromFile>
+                            <url>scp://gichinsan@localhost:/home/gichinsan/myHolidays</url>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
@@ -103,5 +135,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
