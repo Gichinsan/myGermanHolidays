@@ -233,16 +233,16 @@ public class MyGermanHolidayController implements Serializable {
     }
 
     /**
-     * Returns the String object of the requested date of AllerHeiligen.
+     * Returns the String object of the requested date of Allerheiligen.
      *
-     * @param year the year for a day of AllerHeiligen
-     * @return the Date of AllerHeiligen
+     * @param year the year for a day of Allerheiligen
+     * @return the Date of Allerheiligen
      */
-    @RequestMapping(value = "/v1/allerHeiligen", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+    @RequestMapping(value = "/v1/allerheiligen", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
     @ResponseBody
-    public String getAllerHeiligen(@RequestParam(value = "year") int year) {
+    public String getAllerheiligen(@RequestParam(value = "year") int year) {
         FixedFeasts ff = new FixedFeasts(year);
-        return ff.getlAllerHeiligen();
+        return ff.getlAllerheiligen();
     }
 
 }

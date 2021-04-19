@@ -105,7 +105,7 @@ class MyGermanHolidaysApplicationTests {
 
     @Test
     public void getsAllerheiligen() {
-        assertThat(controller.getAllerHeiligen(year)).isEqualTo("2021-11-01");
+        assertThat(controller.getAllerheiligen(year)).isEqualTo("2021-11-01");
     }
 
     @Test

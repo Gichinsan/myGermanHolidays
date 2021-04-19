@@ -596,13 +596,13 @@ mvnw wagon:upload-single@upload-to-myserver
   ```http://localhost:8889/v1/silvester?year=2021```
 
 
-## **AllerHeiligen**
+## **Allerheiligen**
 
 ---
 
 * **URL**
 
-  `/v1/allerHeiligen`
+  `/v1/allerheiligen`
 
 * **Method:**
 
@@ -628,4 +628,4 @@ mvnw wagon:upload-single@upload-to-myserver
 
 * **Sample Call:**
 
-  ```http://localhost:8889/v1/allerHeiligen?year=2021```
+  ```http://localhost:8889/v1/allerheiligen?year=2021```

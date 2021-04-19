@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
+ * Berechnung der beweglichen Feiertage in Deutschland.
  *
  */
 public class MovableFeasts {

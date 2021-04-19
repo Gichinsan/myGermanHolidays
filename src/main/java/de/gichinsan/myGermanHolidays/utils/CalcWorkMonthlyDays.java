@@ -80,7 +80,7 @@ public class CalcWorkMonthlyDays {
                 || (mf.getOstermontag().format(formatter).equals(startDate.toString()))
                 || (ff.getsNeujahr().equals(startDate.toString()))
                 || (ff.getsMaifeiertag().equals(startDate.toString()))
-                || (ff.getlAllerHeiligen().equals(startDate.toString()))
+                || (ff.getlAllerheiligen().equals(startDate.toString()))
                 || (ff.gets1Weihnachten().equals(startDate.toString()))
                 || (ff.gets2Weihnachten().equals(startDate.toString()))
                 || (ff.getsTagderDeutschenEinheit().equals(startDate.toString()))

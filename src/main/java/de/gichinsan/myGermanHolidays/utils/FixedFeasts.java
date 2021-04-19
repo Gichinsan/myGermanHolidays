@@ -20,7 +20,7 @@ public class FixedFeasts {
     private static long l1Weihnachten;
     private static long l2Weihnachten;
     private static long lSilvester;
-    private static long lAllerHeiligen;
+    private static long lAllerheiligen;
 
 
     /**
@@ -374,14 +374,14 @@ public class FixedFeasts {
      *
      * @return Datum im Format "yyyy-MM-dd"
      */
-    public String getlAllerHeiligen() {
+    public String getlAllerheiligen() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
 
         cal.set(getiYear(), 10, 1);
 
-        setlAllerHeiligen(cal.getTimeInMillis());
+        setlAllerheiligen(cal.getTimeInMillis());
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
 
@@ -393,9 +393,9 @@ public class FixedFeasts {
     }
 
     /**
-     * @param lAllerHeiligen the lAllerHeiligen to set
+     * @param lAllerheiligen the lAllerheiligen to set
      */
-    public static void setlAllerHeiligen(long lAllerHeiligen) {
-        FixedFeasts.lAllerHeiligen = lAllerHeiligen;
+    public static void setlAllerheiligen(long lAllerheiligen) {
+        FixedFeasts.lAllerheiligen = lAllerheiligen;
     }
 }
