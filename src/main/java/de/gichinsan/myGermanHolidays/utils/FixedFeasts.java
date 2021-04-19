@@ -33,140 +33,6 @@ public class FixedFeasts {
         this.setiYear(year);
     }
 
-    public String getsHeilige() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 0, 6);
-
-        this.setlHeilige(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String getsMaifeiertag() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 4, 1);
-
-        this.setlMaifeiertage(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String getsNeujahr() {
-
-        Calendar cal = Calendar.getInstance();
-        cal.set(FixedFeasts.getiYear(), 0, 1);
-
-        this.setlNeujahr(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String getsTagderDeutschenEinheit() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 9, 3);
-
-        this.setlTagDerDeutschenEinheit(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String getsWeihnachten() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 11, 24);
-
-        this.setlWeihnachten(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String gets1Weihnachten() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 11, 25);
-
-        this.setL1Weihnachten(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String gets2Weihnachten() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 11, 26);
-
-        this.setL2Weihnachten(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
-    public String getsSilvester() {
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
-
-        cal.set(FixedFeasts.getiYear(), 11, 31);
-
-        this.setlSilvester(cal.getTimeInMillis());
-
-        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        return date.format(formatter);
-    }
-
     /**
      * Return the value of iYear.
      *
@@ -330,9 +196,185 @@ public class FixedFeasts {
     }
 
     /**
-     * @return the lAllerHeiligen
+     * Heillige drei Könige
+     *
+     * @return Datum im Format "yyyy-MM-dd"
      */
-    public LocalDateTime getlAllerHeiligen() {
+    public String getsHeilige() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 0, 6);
+
+        this.setlHeilige(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Maifeiertag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getsMaifeiertag() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 4, 1);
+
+        this.setlMaifeiertage(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Neujahr
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getsNeujahr() {
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(FixedFeasts.getiYear(), 0, 1);
+
+        this.setlNeujahr(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Tag der Deutschen Einheit
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getsTagderDeutschenEinheit() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 9, 3);
+
+        this.setlTagDerDeutschenEinheit(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Weihnachten
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getsWeihnachten() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 11, 24);
+
+        this.setlWeihnachten(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Erster Weihnachtsfeiertag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String gets1Weihnachten() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 11, 25);
+
+        this.setL1Weihnachten(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Zweiter Weihnachtsfeiertag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String gets2Weihnachten() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 11, 26);
+
+        this.setL2Weihnachten(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Silvester
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getsSilvester() {
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+
+        cal.set(FixedFeasts.getiYear(), 11, 31);
+
+        this.setlSilvester(cal.getTimeInMillis());
+
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
+    }
+
+    /**
+     * Allerheilligen
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getlAllerHeiligen() {
 
         Calendar cal = Calendar.getInstance();
         DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
@@ -341,7 +383,12 @@ public class FixedFeasts {
 
         setlAllerHeiligen(cal.getTimeInMillis());
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
+
+        return date.format(formatter);
 
     }
 

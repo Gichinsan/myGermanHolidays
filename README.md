@@ -594,3 +594,38 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Sample Call:**
 
   ```http://localhost:8889/v1/silvester?year=2021```
+
+
+## **AllerHeiligen**
+
+---
+
+* **URL**
+
+  `/v1/allerHeiligen`
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  `value = "year"`
+
+* **Data Params**
+
+  `None`
+
+* **Success Response:**
+
+* **Code:** 200 <br />
+  **Content:** `2021-11-01`
+
+* **Error Response:**
+
+* **Code:** 404 Not Found <br />
+  **Content:** `Not Found`
+
+* **Sample Call:**
+
+  ```http://localhost:8889/v1/allerHeiligen?year=2021```

@@ -103,6 +103,10 @@ class MyGermanHolidaysApplicationTests {
         assertThat(controller.getsSilvester(year)).isEqualTo("2021-12-31");
     }
 
+    @Test
+    public void getsAllerheiligen() {
+        assertThat(controller.getAllerHeiligen(year)).isEqualTo("2021-11-01");
+    }
 
     @Test
     public void getCalcDayofMonth12() {

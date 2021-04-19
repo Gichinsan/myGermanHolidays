@@ -54,6 +54,62 @@ public class MovableFeasts {
     }
 
     /**
+     * Return the value of achsermittwoch.
+     *
+     * @return the achsermittwoch
+     */
+    public static long getAchsermittwoch() {
+        return achsermittwoch;
+    }
+
+    /**
+     * @return the lBussUndBettag
+     */
+    public static long getlBussUndBettag() {
+        return lBussUndBettag;
+    }
+
+    /**
+     * Für die Berechnung des Buß- und Bettag gilt folgendes: Dieser Tag ist
+     * immer der vorletzte Mittwoch vor dem 1. Advent und kann demnach nur in
+     * der Zeit vom 16. - 22.11. liegen. Zur Bestimmung des 1. Advent muss der
+     * 4. Advent ermittelt werden. Der 4. Advent ist nun der letzte Sonntag vor
+     * dem 1. Weihnachtstag (25.12.) und kann demnach nur in der Zeit vom 18. -
+     * 24.12 liegen. Um diesen Sonntag zu bestimmen, muss die Tageszahl des
+     * 24.12. ermittelt werden. Für die Ermittlung der Tageszahl eines
+     * bestimmten Datum gibt es eine Formel, die jedoch nur für die Tage vom
+     * 1.1.1901 bis zum 31.12.2099 korrekt ist. Da aber in der Zeit zwischen
+     * Ostern und Weihnachten keine Schalttage liegen können, kann man den 4.
+     * Advent trotzdem korrekt berechnen.
+     * <p>
+     * http://www.dagmar-mueller.de/wdz/html/feiertagsberechnung.html
+     * --> jetzt auf https://www.welt-der-zahlen.info/berechnung.html
+     *
+     * @param lBussUndBettag the lBussUndBettag to set
+     */
+    private static void setlBussUndBettag(long lBussUndBettag) {
+        MovableFeasts.lBussUndBettag = lBussUndBettag;
+    }
+
+    /**
+     * Return the value of iYear.
+     *
+     * @return the iYear
+     */
+    public static int getiYear() {
+        return iYear;
+    }
+
+    /**
+     * Update the value of iYear.
+     *
+     * @param iYear the iYear to set
+     */
+    public void setiYear(int iYear) {
+        MovableFeasts.iYear = iYear;
+    }
+
+    /**
      * @return achsermittwoch
      */
     public LocalDateTime getAschermittwoch() {
@@ -145,68 +201,11 @@ public class MovableFeasts {
     }
 
     /**
-     * Return the value of achsermittwoch.
-     *
-     * @return the achsermittwoch
-     */
-    public static long getAchsermittwoch() {
-        return achsermittwoch;
-    }
-
-
-    /**
      * Update the value of fronleichnam.
      *
      * @param fronleichnam the fronleichnam to set
      */
     public void setFronleichnam(long fronleichnam) {
         MovableFeasts.fronleichnam = fronleichnam;
-    }
-
-
-    /**
-     * @return the lBussUndBettag
-     */
-    public static long getlBussUndBettag() {
-        return lBussUndBettag;
-    }
-
-    /**
-     * Für die Berechnung des Buß- und Bettag gilt folgendes: Dieser Tag ist
-     * immer der vorletzte Mittwoch vor dem 1. Advent und kann demnach nur in
-     * der Zeit vom 16. - 22.11. liegen. Zur Bestimmung des 1. Advent muss der
-     * 4. Advent ermittelt werden. Der 4. Advent ist nun der letzte Sonntag vor
-     * dem 1. Weihnachtstag (25.12.) und kann demnach nur in der Zeit vom 18. -
-     * 24.12 liegen. Um diesen Sonntag zu bestimmen, muss die Tageszahl des
-     * 24.12. ermittelt werden. Für die Ermittlung der Tageszahl eines
-     * bestimmten Datum gibt es eine Formel, die jedoch nur für die Tage vom
-     * 1.1.1901 bis zum 31.12.2099 korrekt ist. Da aber in der Zeit zwischen
-     * Ostern und Weihnachten keine Schalttage liegen können, kann man den 4.
-     * Advent trotzdem korrekt berechnen.
-     * <p>
-     * http://www.dagmar-mueller.de/wdz/html/feiertagsberechnung.html
-     *
-     * @param lBussUndBettag the lBussUndBettag to set
-     */
-    private static void setlBussUndBettag(long lBussUndBettag) {
-        MovableFeasts.lBussUndBettag = lBussUndBettag;
-    }
-
-    /**
-     * Return the value of iYear.
-     *
-     * @return the iYear
-     */
-    public static int getiYear() {
-        return iYear;
-    }
-
-    /**
-     * Update the value of iYear.
-     *
-     * @param iYear the iYear to set
-     */
-    public void setiYear(int iYear) {
-        MovableFeasts.iYear = iYear;
     }
 }
