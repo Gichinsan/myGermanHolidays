@@ -38,7 +38,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-02-17T23: 00`
+  **Content:** `2021-02-17`
 
 * **Error Response:**
 
@@ -72,7 +72,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-03-27T23: 00`
+  **Content:** `2021-03-27`
 
 * **Error Response:**
 
@@ -106,7 +106,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-04-02T00: 00`
+  **Content:** `2021-04-02`
 
 * **Error Response:**
 
@@ -140,7 +140,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-04-04T00: 00`
+  **Content:** `2021-04-04`
 
 * **Error Response:**
 
@@ -174,7 +174,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-04-05T00: 00`
+  **Content:** `2021-04-05`
 
 * **Error Response:**
 
@@ -208,7 +208,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-05-13T00: 00`
+  **Content:** `2021-05-13`
 
 * **Error Response:**
 
@@ -242,7 +242,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-05-24T00: 00`
+  **Content:** `2021-05-24`
 
 * **Error Response:**
 
@@ -276,7 +276,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-06-03T00: 00`
+  **Content:** `2021-06-03`
 
 * **Error Response:**
 
@@ -414,7 +414,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Success Response:**
 
 * **Code:** 200 <br />
-  **Content:** `2021-01-01
+  **Content:** `2021-01-01`
 
 * **Error Response:**
 
@@ -629,3 +629,37 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Sample Call:**
 
   ```http://localhost:8889/v1/allerheiligen?year=2021```
+
+## **Buﬂ und Bettag**
+
+---
+
+* **URL**
+
+  `/v1/bussundbettag`
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  `value = "year"`
+
+* **Data Params**
+
+  `None`
+
+* **Success Response:**
+
+* **Code:** 200 <br />
+  **Content:** `2021-02-17`
+
+* **Error Response:**
+
+* **Code:** 404 Not Found <br />
+  **Content:** `Not Found`
+
+* **Sample Call:**
+
+  ```http://localhost:8889/v1/bussundbettag?year=2021```

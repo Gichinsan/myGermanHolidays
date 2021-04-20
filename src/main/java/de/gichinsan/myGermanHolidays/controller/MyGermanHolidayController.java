@@ -245,4 +245,17 @@ public class MyGermanHolidayController implements Serializable {
         return ff.getlAllerheiligen();
     }
 
+    /**
+     * Returns the String object of the requested date of Buss und Bettag.
+     *
+     * @param year the year for a day of Buss und Bettag
+     * @return the Date of Buss und Bettag
+     */
+    @RequestMapping(value = "/v1/bussundbettag", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+    @ResponseBody
+    public String getBussUndBettag(@RequestParam(value = "year") int year) {
+        MovableFeasts mf = new MovableFeasts(year);
+        return mf.getlBussUndBettag().toString();
+    }
+
 }

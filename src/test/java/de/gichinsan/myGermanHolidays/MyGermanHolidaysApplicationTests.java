@@ -28,37 +28,37 @@ class MyGermanHolidaysApplicationTests {
 
     @Test
     public void getAschermittwoch() {
-        assertThat(controller.getAschermittwoch(year)).isEqualTo("2021-02-17T23:00");
+        assertThat(controller.getAschermittwoch(year)).isEqualTo("2021-02-17");
     }
 
     @Test
     public void getPalmsonntag() {
-        assertThat(controller.getPalmsonntag(year)).isEqualTo("2021-03-27T23:00");
+        assertThat(controller.getPalmsonntag(year)).isEqualTo("2021-03-27");
     }
 
     @Test
     public void getKarfreitag() {
-        assertThat(controller.getKarfreitag(year)).isEqualTo("2021-04-02T00:00");
+        assertThat(controller.getKarfreitag(year)).isEqualTo("2021-04-02");
     }
 
     @Test
     public void getOstersonntag() {
-        assertThat(controller.getOstersonntag(year)).isEqualTo("2021-04-04T00:00");
+        assertThat(controller.getOstersonntag(year)).isEqualTo("2021-04-04");
     }
 
     @Test
     public void getChristiHimmelfahrt() {
-        assertThat(controller.getChristiHimmelfahrt(year)).isEqualTo("2021-05-13T00:00");
+        assertThat(controller.getChristiHimmelfahrt(year)).isEqualTo("2021-05-13");
     }
 
     @Test
     public void getPfingsten() {
-        assertThat(controller.getPfingsten(year)).isEqualTo("2021-05-24T00:00");
+        assertThat(controller.getPfingsten(year)).isEqualTo("2021-05-24");
     }
 
     @Test
     public void getFronleichnam() {
-        assertThat(controller.getFronleichnam(year)).isEqualTo("2021-06-03T00:00");
+        assertThat(controller.getFronleichnam(year)).isEqualTo("2021-06-03");
     }
 
 
@@ -106,6 +106,11 @@ class MyGermanHolidaysApplicationTests {
     @Test
     public void getsAllerheiligen() {
         assertThat(controller.getAllerheiligen(year)).isEqualTo("2021-11-01");
+    }
+
+    @Test
+    public void getBussUndBettag() {
+        assertThat(controller.getBussUndBettag(year)).isEqualTo("2021-11-17");
     }
 
     @Test

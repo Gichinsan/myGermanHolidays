@@ -21,6 +21,7 @@ public class FixedFeasts {
     private static long l2Weihnachten;
     private static long lSilvester;
     private static long lAllerheiligen;
+    private static DateTimeFormatter formatter;
 
 
     /**
@@ -30,6 +31,8 @@ public class FixedFeasts {
      * @param year int
      */
     public FixedFeasts(int year) {
+        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
         this.setiYear(year);
     }
 
@@ -211,9 +214,6 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
     }
 
@@ -233,9 +233,6 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
     }
 
@@ -252,9 +249,6 @@ public class FixedFeasts {
         this.setlNeujahr(cal.getTimeInMillis());
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
 
         return date.format(formatter);
     }
@@ -275,9 +269,6 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
     }
 
@@ -296,9 +287,6 @@ public class FixedFeasts {
         this.setlWeihnachten(cal.getTimeInMillis());
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
 
         return date.format(formatter);
     }
@@ -319,9 +307,6 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
     }
 
@@ -340,9 +325,6 @@ public class FixedFeasts {
         this.setL2Weihnachten(cal.getTimeInMillis());
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
 
         return date.format(formatter);
     }
@@ -363,9 +345,6 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTime().getTime()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
     }
 
@@ -385,11 +364,7 @@ public class FixedFeasts {
 
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochMilli(cal.getTimeInMillis()), ZoneId.systemDefault());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
         return date.format(formatter);
-
     }
 
     /**

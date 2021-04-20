@@ -1,15 +1,18 @@
 package de.gichinsan.myGermanHolidays.utils;
 
+import java.text.DateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Berechnung der beweglichen Feiertage in Deutschland.
- *
  */
 public class MovableFeasts {
 
@@ -22,11 +25,14 @@ public class MovableFeasts {
     private static long pfingsten;
     private static long lBussUndBettag;
     private static int iYear = 0;
+    private static DateTimeFormatter formatter;
 
     /**
      * @param year int
      */
     public MovableFeasts(int year) {
+        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        formatter = formatter.withLocale(Locale.GERMAN);
         this.setiYear(year);
     }
 
@@ -64,10 +70,62 @@ public class MovableFeasts {
     }
 
     /**
+     * Return the value of iYear.
+     *
+     * @return the iYear
+     */
+    public static int getiYear() {
+        return iYear;
+    }
+
+    /**
+     * Update the value of iYear.
+     *
+     * @param iYear the iYear to set
+     */
+    public void setiYear(int iYear) {
+        MovableFeasts.iYear = iYear;
+    }
+
+    /**
+     * Return the value of Buß und Bettag.
+     * <p>
+     * Nur in Sachsen ist dieser Tag ein freier Tag.
+     * <p>
+     * Zwischen Buss und Bettag und dem 4. Advent liegen 32 Tage.
+     * Zwischen dem 4. Advent und dem 24.12. liegt die Anzahl Tage, die durch die Tageszahl ausgedrückt wird.
+     *
      * @return the lBussUndBettag
      */
-    public static long getlBussUndBettag() {
-        return lBussUndBettag;
+    public String getlBussUndBettag() {
+        long day = 32;
+
+        long dayb = day * (24 * 60 * 60 * 1000);
+
+        long aDay = 24 * 60 * 60 * 1000;
+
+        Calendar cal = Calendar.getInstance();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL);
+        cal.set(MovableFeasts.getiYear(), 11, 24);
+
+        lBussUndBettag = cal.getTimeInMillis() - dayb;
+
+        Date date = new Date(lBussUndBettag);
+        Calendar cali = Calendar.getInstance();
+        cali.setTime(date);
+
+        int weekday = cali.get(Calendar.DAY_OF_WEEK);
+        LocalDateTime bubDay = null;
+        //Finde den letzten Mittwoch
+        if (weekday != 3) {
+            while (weekday != 3) {
+                lBussUndBettag = lBussUndBettag - aDay;
+                LocalDateTime varDay = LocalDateTime.ofInstant(Instant.ofEpochMilli(lBussUndBettag), ZoneId.systemDefault());
+                bubDay = varDay.minus(1, ChronoUnit.DAYS);
+                weekday = bubDay.getDayOfWeek().getValue();
+            }
+        }
+        return bubDay.format(formatter);
     }
 
     /**
@@ -93,27 +151,11 @@ public class MovableFeasts {
     }
 
     /**
-     * Return the value of iYear.
+     * Aschermittwoch
      *
-     * @return the iYear
+     * @return Datum im Format "yyyy-MM-dd"
      */
-    public static int getiYear() {
-        return iYear;
-    }
-
-    /**
-     * Update the value of iYear.
-     *
-     * @param iYear the iYear to set
-     */
-    public void setiYear(int iYear) {
-        MovableFeasts.iYear = iYear;
-    }
-
-    /**
-     * @return achsermittwoch
-     */
-    public LocalDateTime getAschermittwoch() {
+    public String getAschermittwoch() {
 
         long day = 46;
 
@@ -132,65 +174,97 @@ public class MovableFeasts {
         if (weekday != 4) {
             achsermittwoch = achsermittwoch + aDay;
         }
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(achsermittwoch), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(achsermittwoch), ZoneId.systemDefault()).format(formatter);
     }
 
-    public LocalDateTime getPalmsonntag() {
+    /**
+     * Palmsonntag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getPalmsonntag() {
         long day = 7;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         palmsonntag = easterSunday().getTimeInMillis() - dayb;
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(palmsonntag), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(palmsonntag), ZoneId.systemDefault()).format(formatter);
     }
 
     /**
-     * @return karfreitag
+     * Karfreitag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
      */
-    public LocalDateTime getKarfreitag() {
+    public String getKarfreitag() {
         long day = 2;
 
         long dayb = day * (24 * 60 * 60 * 1000);
         karfreitag = easterSunday().getTimeInMillis() - dayb;
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(karfreitag), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(karfreitag), ZoneId.systemDefault()).format(formatter);
     }
 
-    public LocalDateTime getOstersonntag() {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(easterSunday().getTimeInMillis()), ZoneId.systemDefault());
+    /**
+     * Ostersonntag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getOstersonntag() {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(easterSunday().getTimeInMillis()), ZoneId.systemDefault()).format(formatter);
     }
 
-    public LocalDateTime getOstermontag() {
+    /**
+     * Ostermontag
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getOstermontag() {
         long day = 1;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         ostermontag = easterSunday().getTimeInMillis() + dayb;
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ostermontag), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ostermontag), ZoneId.systemDefault()).format(formatter);
     }
 
-    public LocalDateTime getChristiHimmelfahrt() {
+    /**
+     * Christi Himmelfahrt
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getChristiHimmelfahrt() {
         long day = 39;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         christiHimmelfahrt = easterSunday().getTimeInMillis() + dayb;
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(christiHimmelfahrt), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(christiHimmelfahrt), ZoneId.systemDefault()).format(formatter);
 
     }
 
-    public LocalDateTime getPfingsten() {
+    /**
+     * Pfingsten
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getPfingsten() {
         long day = 50;
 
         long dayb = day * (24 * 60 * 60 * 1000);
 
         pfingsten = easterSunday().getTimeInMillis() + dayb;
 
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(pfingsten), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(pfingsten), ZoneId.systemDefault()).format(formatter);
     }
 
-    public LocalDateTime getFronleichnam() {
+    /**
+     * Fronleichnam
+     *
+     * @return Datum im Format "yyyy-MM-dd"
+     */
+    public String getFronleichnam() {
         long day = 60;
 
         long dayb = day * (24 * 60 * 60 * 1000);
@@ -198,7 +272,7 @@ public class MovableFeasts {
         fronleichnam = easterSunday().getTimeInMillis() + dayb;
 
         this.setFronleichnam(fronleichnam);
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(fronleichnam), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(fronleichnam), ZoneId.systemDefault()).format(formatter);
     }
 
     /**

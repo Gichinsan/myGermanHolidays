@@ -6,8 +6,6 @@ import lombok.val;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 @Data
 public class CalcWorkMonthlyDays {
@@ -16,7 +14,7 @@ public class CalcWorkMonthlyDays {
     private int month;
 
     /**
-     * @param year INT
+     * @param year  INT
      * @param month INT
      */
     public CalcWorkMonthlyDays(int year, int month) {
@@ -43,7 +41,7 @@ public class CalcWorkMonthlyDays {
 
     /**
      * @param startDate LocalDate
-     * @param endDate LocalDate
+     * @param endDate   LocalDate
      * @return int Anzahl der Arbeitstage
      */
     private int getWorkDays(LocalDate startDate, LocalDate endDate) {
@@ -61,7 +59,7 @@ public class CalcWorkMonthlyDays {
     /**
      * isFeasts gibt zurück ob es sich um einen beweglichen oder festen Feiertag handelt.
      * <p>
-     * Note: Weihnachten und Silverster sind zu meinst halbe Arbeitstage!
+     * Note: Weihnachten und Silvester sind zu meinst halbe Arbeitstage!
      *
      * @param startDate LocalDate
      * @return boolean true/false
@@ -71,13 +69,10 @@ public class CalcWorkMonthlyDays {
         MovableFeasts mf = new MovableFeasts(year);
         FixedFeasts ff = new FixedFeasts(year);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        formatter = formatter.withLocale(Locale.GERMAN);
-
-        if ((mf.getChristiHimmelfahrt().format(formatter).equals(startDate.toString()))
-                || (mf.getPfingsten().format(formatter).equals(startDate.toString()))
-                || (mf.getKarfreitag().format(formatter).equals(startDate.toString()))
-                || (mf.getOstermontag().format(formatter).equals(startDate.toString()))
+        if ((mf.getChristiHimmelfahrt().equals(startDate.toString()))
+                || (mf.getPfingsten().equals(startDate.toString()))
+                || (mf.getKarfreitag().equals(startDate.toString()))
+                || (mf.getOstermontag().equals(startDate.toString()))
                 || (ff.getsNeujahr().equals(startDate.toString()))
                 || (ff.getsMaifeiertag().equals(startDate.toString()))
                 || (ff.getlAllerheiligen().equals(startDate.toString()))
@@ -85,7 +80,7 @@ public class CalcWorkMonthlyDays {
                 || (ff.gets2Weihnachten().equals(startDate.toString()))
                 || (ff.getsTagderDeutschenEinheit().equals(startDate.toString()))
                 || (ff.getsHeilige().equals(startDate.toString()))
-                || (mf.getFronleichnam().format(formatter).equals(startDate.toString()))) {
+                || (mf.getFronleichnam().equals(startDate.toString()))) {
             return true;
         } else {
             return false;
