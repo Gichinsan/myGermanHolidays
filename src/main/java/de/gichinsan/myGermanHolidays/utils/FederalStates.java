@@ -1,5 +1,9 @@
 package de.gichinsan.myGermanHolidays.utils;
 
+/**
+ * Auflistung aller Bundesländer.
+ *
+ */
 public enum FederalStates {
 
     Baden_Wuerttemberg("Baden-Württemberg"),
