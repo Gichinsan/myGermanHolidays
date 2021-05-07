@@ -60,3 +60,4 @@ hs_err_pid*
 .idea/**
 target/**s
 /settings.xml
+pom.xml.versionsBackup
