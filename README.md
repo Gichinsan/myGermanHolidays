@@ -7,11 +7,208 @@ Feiertage abfragen oder sich pro Monat die Arbeitstage wiedergeben lassen. Alle 
 
 Es handelt sich um gesetzliche Feiertage innerhalb Deutschlands.
 
-## Deploy to development server
 
-mvnw wagon:upload-single@upload-to-myserver
+## API Dokumentation sonderfunktionen
 
-## API Dokumentation
+## **Arbeitstage**
+
+---
+
+* **URL**
+
+  `/v1/calcDayofMonth`
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  * `value = "year"`
+  * `value = "month"`
+
+
+* **Data Params**
+
+  `None`
+
+* **Success Response:**
+
+* **Code:** 200 <br />
+  **Content:** `19`
+
+* **Error Response:**
+
+* **Code:** 404 Not Found <br />
+  **Content:** `Not Found`
+
+* **Sample Call:**
+
+  ```http://localhost:8889/v1/calcDayofMonth?year=2021&month=1```
+
+## **Feiertage pro Bundeslann**
+
+---
+
+* **URL**
+
+  `v1/myplan`
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  * `value = "year"`
+  * `value = "bl"`
+
+
+* **Data Params**
+
+  `None`
+
+* **Success Response:**
+
+* **Code:** 200 <br />
+  **Content:** `{
+  "Bundesland": "Hessen",
+  "Liste aller Feiertage": [
+  {
+  "Beschreibung": "Neujahr",
+  "Datum": "2021-01-01",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Palmsonntag",
+  "Datum": "2021-03-27",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Karfreitag",
+  "Datum": "2021-04-02",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Ostersonntag",
+  "Datum": "2021-04-04",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Ostermontag",
+  "Datum": "2021-04-05",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Maifeiertag",
+  "Datum": "2021-05-01",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Christi Himmelfahrt",
+  "Datum": "2021-05-13",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Pfingsten",
+  "Datum": "2021-05-24",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Fronleichnam",
+  "Datum": "2021-06-03",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Tag der Deutschen Einheit",
+  "Datum": "2021-10-03",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Weihnachten",
+  "Datum": "2021-12-24",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Erster Weihnachtsfeiertag",
+  "Datum": "2021-12-25",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Zweiter Weihnachtsfeiertag",
+  "Datum": "2021-12-26",
+  "Bemerkung": null
+  },
+  {
+  "Beschreibung": "Silvester",
+  "Datum": "2021-12-31",
+  "Bemerkung": null
+  }
+  ]
+  }`
+  
+* **Error Response:**
+
+* **Code:** 404 Not Found <br />
+  **Content:** `Not Found`
+
+* **Sample Call:**
+
+  ```http://localhost:8889/v1/myplan?year=2021&bl=he```
+
+## **Arbeitstage**
+
+---
+
+* **URL**
+
+  `v1/federalList`
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  `None`
+
+
+* **Data Params**
+
+  `None`
+
+* **Success Response:**
+
+* **Code:** 200 <br />
+  **Content:** `[
+  "BW",
+  "BY",
+  "BE",
+  "BB",
+  "HB",
+  "HH",
+  "HE",
+  "NW",
+  "RP",
+  "SL",
+  "SN",
+  "ST",
+  "SH",
+  "TH",
+  "ALL"
+  ]`
+
+* **Error Response:**
+
+* **Code:** 404 Not Found <br />
+  **Content:** `Not Found`
+
+* **Sample Call:**
+
+  ```http://localhost:8889/v1/federalList```
+
+
+## API Dokumentation abruf einzelner Feiertage
 
 ---
 
@@ -321,42 +518,6 @@ mvnw wagon:upload-single@upload-to-myserver
 
   ```http://localhost:8889/v1/maifeiertag?year=2021```
 
-## **Arbeitstage**
-
----
-
-* **URL**
-
-  `/v1/calcDayofMonth`
-
-* **Method:**
-
-  `GET`
-
-* **URL Params**
-
-    * `value = "year"`
-    * `value = "month"`
-
-
-* **Data Params**
-
-  `None`
-
-* **Success Response:**
-
-* **Code:** 200 <br />
-  **Content:** `19`
-
-* **Error Response:**
-
-* **Code:** 404 Not Found <br />
-  **Content:** `Not Found`
-
-* **Sample Call:**
-
-  ```http://localhost:8889/v1/calcDayofMonth?year=2021&month=1```
-
 ## **HeiligeDreiKönige**
 
 ---
@@ -663,3 +824,7 @@ mvnw wagon:upload-single@upload-to-myserver
 * **Sample Call:**
 
   ```http://localhost:8889/v1/bussundbettag?year=2021```
+
+##Quelle:
+
+https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland
