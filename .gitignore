@@ -58,6 +58,6 @@ hs_err_pid*
 
 #ide specific
 .idea/**
-target/**s
+target/**
 /settings.xml
 pom.xml.versionsBackup
