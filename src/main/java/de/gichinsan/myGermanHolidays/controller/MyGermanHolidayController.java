@@ -128,20 +128,6 @@ public class MyGermanHolidayController implements Serializable {
     }
 
     /**
-     * Berechnet die Arbeitstage eines Monats, ohne Wochenende und Feiertage.
-     *
-     * @param year  INT
-     * @param month INT
-     * @return Anzahl der Arbeitstage INT
-     */
-    @RequestMapping(value = "/v1/calcDayofMonth", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
-    @ResponseBody
-    public int getCalcDayofMonth(@RequestParam(value = "year") int year, @RequestParam(value = "month") int month) {
-        CalcWorkMonthlyDays cm = new CalcWorkMonthlyDays(year, month);
-        return cm.getCalcWorkMonthlyDays();
-    }
-
-    /**
      * Returns the String object of the requested date of HeiligeDreiKönige.
      *
      * @param year the year for a day of HeiligeDreiKönige
@@ -256,6 +242,20 @@ public class MyGermanHolidayController implements Serializable {
     public String getBussUndBettag(@RequestParam(value = "year") int year) {
         MovableFeasts mf = new MovableFeasts(year);
         return mf.getlBussUndBettag().toString();
+    }
+
+    /**
+     * Berechnet die Arbeitstage eines Monats, ohne Wochenende und Feiertage.
+     *
+     * @param year  INT
+     * @param month INT
+     * @return Anzahl der Arbeitstage INT
+     */
+    @RequestMapping(value = "/v1/calcDayofMonth", produces = "application/json; charset=UTF-8", method = RequestMethod.GET)
+    @ResponseBody
+    public int getCalcDayofMonth(@RequestParam(value = "year") int year, @RequestParam(value = "month") int month) {
+        CalcWorkMonthlyDays cm = new CalcWorkMonthlyDays(year, month);
+        return cm.getCalcWorkMonthlyDays();
     }
 
 }

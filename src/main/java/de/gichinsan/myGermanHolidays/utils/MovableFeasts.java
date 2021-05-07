@@ -61,15 +61,6 @@ public class MovableFeasts {
     }
 
     /**
-     * Return the value of achsermittwoch.
-     *
-     * @return the achsermittwoch
-     */
-    public static long getAchsermittwoch() {
-        return achsermittwoch;
-    }
-
-    /**
      * Return the value of iYear.
      *
      * @return the iYear
