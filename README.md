@@ -1,7 +1,6 @@
 # myGermanHolidays
 
-MyGermanHolidays ist in der Lage Feste und bewegliche Feiertage aus Deutschland zu berechnen. Man kann einzelne
-Feiertage abfragen oder sich pro Monat die Arbeitstage wiedergeben lassen. Alle Abfragen sind REST abfragen.
+MyGermanHolidays ist in der Lage, Feste und bewegliche Feiertage aus Deutschland zu berechnen. Man kann einzelne Feiertage abfragen oder sich pro Monat die Arbeitstage wiedergeben lassen. Alle Abfragen sind REST-Abfragen.
 
 **Anmerkung:**
 
@@ -518,7 +517,7 @@ Es handelt sich um gesetzliche Feiertage innerhalb Deutschlands.
 
   ```http://localhost:8889/v1/maifeiertag?year=2021```
 
-## **HeiligeDreiKönige**
+## **HeiligeDreiKÃ¶nige**
 
 ---
 
@@ -791,7 +790,7 @@ Es handelt sich um gesetzliche Feiertage innerhalb Deutschlands.
 
   ```http://localhost:8889/v1/allerheiligen?year=2021```
 
-## **Buß und Bettag**
+## **BuÃŸ und Bettag**
 
 ---
 
